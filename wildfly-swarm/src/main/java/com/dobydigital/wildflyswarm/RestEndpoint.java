@@ -20,7 +20,7 @@ public class RestEndpoint
     @Path( "/" )
     public void create( TestEntity apiTestEntity )
     {
-        //jmsMessageProducer.send( apiTestEntity );
+        jmsMessageProducer.send( apiTestEntity );
     }
 
     @GET

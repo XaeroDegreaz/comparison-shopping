@@ -4,7 +4,7 @@ logger:
 project:
   stage: test
 logger:
-  level: FINEST
+  level: INFO
 swarm:
   ds:
     connection:
