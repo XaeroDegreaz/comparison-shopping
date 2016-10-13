@@ -1,0 +1,14 @@
+logger:
+  level: DEBUG
+---
+project:
+  stage: test
+logger:
+  level: FINEST
+swarm:
+  ds:
+    connection:
+      url: jdbc:mysql://localhost:3306/comparison_shopping?useSSL=false
+    username: root
+    password: root
+    name: TestPu
