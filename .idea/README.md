@@ -1,0 +1,1 @@
+I left the *.iml and the .idea stuff in the repo so that way I can just grab and go with this as a single project with multiple modules in IntelliJ.
