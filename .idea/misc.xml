@@ -42,13 +42,13 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/../comparison-shoppingo/wildfly-swarm" />
+    <file type="web" url="file://$PROJECT_DIR$/wildfly-swarm" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/../comparison-shoppingo/spring-boot/pom.xml" />
-        <option value="$PROJECT_DIR$/../comparison-shoppingo/wildfly-swarm/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot/pom.xml" />
+        <option value="$PROJECT_DIR$/wildfly-swarm/pom.xml" />
       </list>
     </option>
   </component>
