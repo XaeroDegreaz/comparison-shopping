@@ -13,7 +13,7 @@ public class JmsMessageProducer
 {
     @Inject
     private JMSContext jmsContext;
-    @Resource( lookup = "com.dobydigital.wildflyswarm.TestEntity" )
+    @Resource( lookup = "/jms/queue/com.dobydigital.wildflyswarm.TestEntity" )
     private Queue queue;
 
     public void send( TestEntity apiTestEntity )
