@@ -1,11 +1,13 @@
 package com.dobydigital.wildflyswarm;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 @Transactional
+@ApplicationScoped
 public class TestEntityRepository
 {
     @PersistenceContext( unitName = "TestPu" )

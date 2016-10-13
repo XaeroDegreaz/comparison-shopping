@@ -1,8 +1,11 @@
 package com.dobydigital.wildflyswarm;
 
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.config.logging.Level;
 import org.wildfly.swarm.datasources.DatasourcesFraction;
+import org.wildfly.swarm.jaxrs.JAXRSArchive;
 import org.wildfly.swarm.logging.LoggingFraction;
 import org.wildfly.swarm.messaging.MessagingFraction;
 import org.wildfly.swarm.spi.api.StageConfig;
@@ -31,6 +34,10 @@ public class Main
         swarm.fraction( new MessagingFraction()
                             .defaultServer( s -> s.jmsQueue( TestEntity.class.getName() ) ) );
         swarm.start();
-        swarm.deploy();
+        JAXRSArchive deployment = ShrinkWrap.create( JAXRSArchive.class );
+        deployment.addPackage( Main.class.getPackage() );
+        deployment.addAsWebInfResource( new ClassLoaderAsset( "META-INF/persistence.xml", Main.class.getClassLoader() ), "classes/META-INF/persistence.xml" );
+        deployment.addAllDependencies();
+        swarm.deploy( deployment );
     }
 }

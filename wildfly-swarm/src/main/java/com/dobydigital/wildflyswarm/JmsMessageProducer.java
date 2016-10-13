@@ -1,12 +1,14 @@
 package com.dobydigital.wildflyswarm;
 
 import javax.annotation.Resource;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
 import javax.transaction.Transactional;
 
 @Transactional
+@ApplicationScoped
 public class JmsMessageProducer
 {
     @Inject
