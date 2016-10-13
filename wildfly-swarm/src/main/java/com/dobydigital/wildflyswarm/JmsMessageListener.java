@@ -17,7 +17,6 @@ import java.io.ByteArrayInputStream;
         @ActivationConfigProperty( propertyName = "destinationLookup", propertyValue = "jms/queue/com.dobydigital.wildflyswarm.TestEntity" ),
         @ActivationConfigProperty( propertyName = "destinationType", propertyValue = "javax.jms.Queue" )
     } )
-@Stateless
 public class JmsMessageListener implements MessageListener
 {
     @Inject

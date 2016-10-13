@@ -1,12 +1,17 @@
 package com.dobydigital.wildflyswarm;
 
 import javax.annotation.Resource;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
+import javax.jms.TextMessage;
+import javax.transaction.Transactional;
+import javax.xml.bind.JAXB;
+import java.io.ByteArrayOutputStream;
 
-@Stateless
+@Transactional
+@ApplicationScoped
 public class JmsMessageProducer
 {
     @Inject
@@ -16,6 +21,9 @@ public class JmsMessageProducer
 
     public void send( TestEntity apiTestEntity )
     {
-        jmsContext.createProducer().send( queue, apiTestEntity );
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        JAXB.marshal( apiTestEntity, out );
+        TextMessage message = jmsContext.createTextMessage( out.toString() );
+        jmsContext.createProducer().send( queue, message );
     }
 }
