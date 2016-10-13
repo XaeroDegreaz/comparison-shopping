@@ -23,4 +23,17 @@ public class TestEntityRepository
     {
         return em.find( TestEntity.class, id );
     }
+
+    public TestEntity save( TestEntity testEntity )
+    {
+        if ( testEntity.getId() == null )
+        {
+            em.persist( testEntity );
+        }
+        else
+        {
+            testEntity = em.merge( testEntity );
+        }
+        return testEntity;
+    }
 }
