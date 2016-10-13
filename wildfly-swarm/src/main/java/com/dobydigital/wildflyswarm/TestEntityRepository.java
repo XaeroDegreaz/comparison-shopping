@@ -36,4 +36,17 @@ public class TestEntityRepository
         }
         return testEntity;
     }
+
+    public void delete( Integer id )
+    {
+        TestEntity testEntity = em.getReference( TestEntity.class, id );
+        em.remove( testEntity );
+    }
+
+    public Iterable<TestEntity> findByTestString( String testString )
+    {
+        TypedQuery<TestEntity> query = em.createQuery( "select testEntity from TestEntity testEntity where testEntity.testString = :testString", TestEntity.class );
+        query.setParameter( "testString", testString );
+        return query.getResultList();
+    }
 }
